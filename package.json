@@ -1,0 +1,22 @@
+{
+  "name": "zenn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "article": "npx zenn new:article",
+    "book": " npx zenn new:book",
+    "preview": "npx zenn preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fmt": "prettier --write ./**/*.{js,jsx,ts,tsx,json,css,scss,md}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zenn-cli": "^0.1.106"
+  },
+  "devDependencies": {
+    "prettier": "2.5.1"
+  }
+}
