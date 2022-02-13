@@ -3,7 +3,7 @@ title: "目次をハイライトするやつを作りたい"
 emoji: "👀"
 type: "tech"
 topics: [nextjs, react, web]
-published: false
+published: true
 ---
 
 # 最初に
