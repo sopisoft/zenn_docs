@@ -1,5 +1,5 @@
 ---
-title: "目次の今読んでいる項目をハイライトする"
+title: "目次をハイライトするやつを作りたい"
 emoji: "👀"
 type: "tech"
 topics: [nextjs, react, web]
