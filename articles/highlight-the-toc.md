@@ -68,12 +68,16 @@ anchorArray.forEach((item: Element) => {
 });
 ```
 
-`IntersectionObserver` を使うと、上記のような形で実装できます。
+Intersection Observer API を使うと、上記のような形で実装できます。
 
 この方法ではスクロールイベントを用いないので、前述の方法に比べてパフォーマンスを期待できます。
-`IntersectionObserver` は、 IE や Safari などのブラウザでは動作しませんが、今回は見なかったことにします。
+Intersection Observer API は、 IE や Safari などのブラウザでは動作しませんが、今回は見なかったことにします。
 
 # 実装してみる
+
+今回は 2 つ目の Intersection Observer API を使う方法で実装しました。
+
+![](/images/highlight-the-toc/result.gif)
 
 ## 完成品
 
@@ -124,9 +128,7 @@ React.useEffect(() => {
 }, []);
 ```
 
-![](/images/highlight-the-toc/result.gif)
-
-## IntersectionObserver のオプション
+## API のオプション
 
 ```typescript
 const options = {
@@ -142,12 +144,14 @@ const options = {
 
 `threshold: 1`は、アンカーが完全に入った時発火する設定です。普通は 1 に設定しませんが、今回はターゲットの要素が小さいので、1 に設定しています。
 
-## `router.events.on("routeChangeComplete", () => {...})`
+## ページ遷移を取得する
 
 ページ遷移を取得しようとして、個人的につまずいた点です。Next.js のルーティングについてよくわかっていませんでした。
 Next.js では `<Link>` を使ったルーティングでは、遷移先で `window.addEventListener(("DOMLoaded", () => {...}))` や `window.onload = () => {...}` など、ページを読み込んですぐ発火するイベントが使えないので `router.events.on("routeChangeComplete", () => {...})` を代わりに使う必要があります。これは `<Link>` を使ったルーティングでルートが完全に変更されたときに発火するイベントです。
 
 https://nextjs.org/docs/api-reference/next/router
+
+# 最後に
 
 ### 参考
 
