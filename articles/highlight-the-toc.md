@@ -11,10 +11,12 @@ published: true
 Zenn の目次は、今読んでいる部分が強調されて、長い記事でも読みやすいですよね。
 この記事では、今読んでいる部分がハイライトされる目次を作ろうと思います。
 
-私は、はじめに 2 つの実装方法を考えました。
+# 実装方法を考える
 
-1. 要素の高さを取得して比較する
-2. Intersection Observer API を使う
+目次を作るにあたって、はじめに 2 つの実装方法を考えました。
+
+1. 要素の高さを取得してスクロール量と比較する
+2. Intersection Observer API を使ってターゲットとビューポートの交差を判定する
 
 https://developer.mozilla.org/ja/docs/Web/API/Intersection_Observer_API
 
