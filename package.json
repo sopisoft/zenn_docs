@@ -10,10 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fmt": "prettier --write ./**/*.{js,jsx,ts,tsx,json,css,scss,md}"
   },
-  "dependencies": {
-    "zenn-cli": "^0.1.110"
-  },
   "devDependencies": {
-    "prettier": "2.6.2"
+    "zenn-cli": "^0.1.121",
+    "prettier": "2.7.1"
   }
 }
