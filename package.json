@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "article": "npx zenn new:article",
-    "book": " npx zenn new:book",
-    "preview": "npx zenn preview",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "fmt": "prettier --write ./**/*.{js,jsx,ts,tsx,json,css,scss,md}"
+    "article": "bunx zenn new:article",
+    "book": " bunx zenn new:book",
+    "preview": "bunx zenn preview",
+    "fmt": "prettier --write ."
   },
   "devDependencies": {
-    "zenn-cli": "^0.1.121",
-    "prettier": "2.7.1"
+    "zenn-cli": "^0.1.153",
+    "prettier": "3.2.5"
   }
 }

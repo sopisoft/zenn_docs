@@ -3,7 +3,7 @@ title: "目次をハイライトするやつを作りたい"
 emoji: "👀"
 type: "tech"
 topics: [nextjs, react, web]
-published: true
+published: false
 ---
 
 # 最初に
@@ -16,9 +16,7 @@ Zenn の目次は、今読んでいる部分が強調されて、長い記事で
 目次を作るにあたって、はじめに 2 つの実装方法を考えました。
 
 1. 要素の高さを取得してスクロール量と比較する
-2. Intersection Observer API を使ってターゲットとビューポートの交差を判定する
-
-https://developer.mozilla.org/ja/docs/Web/API/Intersection_Observer_API
+2. [Intersection Observer API](https://developer.mozilla.org/ja/docs/Web/API/Intersection_Observer_API) を使ってターゲットとビューポートの交差を判定する
 
 まずは、どちらで実装するか考えます。
 
@@ -31,7 +29,7 @@ https://developer.mozilla.org/ja/docs/Web/API/Intersection_Observer_API
 
 ```typescript
 const anchorsArray = Array.from(
-  document.querySelectorAll(".header-anchor-link")
+  document.querySelectorAll(".header-anchor-link"),
 );
 const tocArray = Array.from(document.querySelectorAll(".toc"));
 
@@ -55,7 +53,7 @@ window.addEventListener("scroll", () => {
 
 ```typescript
 const anchorsArray = Array.from(
-  document.querySelectorAll(".header-anchor-link")
+  document.querySelectorAll(".header-anchor-link"),
 );
 const tocArray = Array.from(document.querySelectorAll(".toc"));
 
@@ -90,7 +88,7 @@ React.useEffect(() => {
   if (document !== undefined) {
     const highlightToc = () => {
       const anchorsArray = Array.from(
-        document.querySelectorAll(".header-anchor-link")
+        document.querySelectorAll(".header-anchor-link"),
       );
       const tocArray = Array.from(document.querySelectorAll(".toc"));
 
@@ -102,7 +100,7 @@ React.useEffect(() => {
 
       const observerCallback = (entries: any) => {
         const entry = entries.find(
-          (entry: { isIntersecting: any }) => entry.isIntersecting
+          (entry: { isIntersecting: any }) => entry.isIntersecting,
         );
         if (entry) {
           const index = anchorsArray.indexOf(entry.target);
@@ -151,7 +149,7 @@ const options = {
 ページ遷移を取得しようとして、個人的につまずいた点です。Next.js のルーティングについてよくわかっていませんでした。
 Next.js では `<Link>` を使ったルーティングでは、遷移先で `window.addEventListener(("DOMLoaded", () => {...}))` や `window.onload = () => {...}` など、ページを読み込んですぐ発火するイベントが使えないので `router.events.on("routeChangeComplete", () => {...})` を代わりに使う必要があります。これは `<Link>` を使ったルーティングでルートが完全に変更されたときに発火するイベントです。
 
-https://nextjs.org/docs/api-reference/next/router
+<https://nextjs.org/docs/api-reference/next/router>
 
 # 最後に
 
